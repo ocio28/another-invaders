@@ -5,8 +5,9 @@
 [ext_resource path="res://assets/images/bullet.png" type="Texture" id=3]
 [ext_resource path="res://assets/images/ship.png" type="Texture" id=4]
 [ext_resource path="res://ui/SoundConfig.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ui/ColorBlinkLabel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://ui/Fullscreen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ui/Fullscreen.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/Play.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ui/Exit.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -20,11 +21,6 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
-
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 48, 10 )
 
 [node name="Title" type="Node2D" index="0"]
 
@@ -84,69 +80,34 @@ shape = SubResource( 2 )
 
 [node name="Ship" type="Sprite" parent="." index="2"]
 
-position = Vector2( 432, 416 )
+position = Vector2( 496, 416 )
 texture = ExtResource( 4 )
 
-[node name="StartTimer" type="Timer" parent="." index="3"]
+[node name="SoundConfig" parent="." index="3" instance=ExtResource( 5 )]
 
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
+position = Vector2( 768, 32 )
 
-[node name="SoundConfig" parent="." index="4" instance=ExtResource( 5 )]
-
-position = Vector2( 640, 336 )
-
-[node name="RankingTimer" type="Timer" parent="." index="5"]
+[node name="RankingTimer" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 4.0
 one_shot = false
 autostart = true
 
-[node name="Play" type="Node2D" parent="." index="6"]
+[node name="Fullscreen" parent="." index="5" instance=ExtResource( 6 )]
 
-position = Vector2( 432, 336 )
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( 96, 32 )
 
-[node name="Label" parent="Play" index="0" instance=ExtResource( 6 )]
+[node name="Play" parent="." index="6" instance=ExtResource( 7 )]
 
-margin_left = -48.0
-margin_top = -16.0
-margin_right = 48.0
-text = "jugar"
-align = 1
-valign = 1
-autostart = false
+position = Vector2( 496, 336 )
 
-[node name="Area2D" type="Area2D" parent="Play" index="1"]
+[node name="Exit" parent="." index="7" instance=ExtResource( 8 )]
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 64
-collision_mask = 4
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
+position = Vector2( 384, 336 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Play/Area2D" index="0"]
-
-shape = SubResource( 3 )
-
-[node name="Fullscreen" parent="." index="7" instance=ExtResource( 7 )]
-
-position = Vector2( 176, 336 )
-
-[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+[connection signal="area_entered" from="Shoot/Area2D" to="." method="_on_Area2D_area_entered"]
 
 [connection signal="timeout" from="RankingTimer" to="." method="_on_RankingTimer_timeout"]
-
-[connection signal="area_entered" from="Play/Area2D" to="." method="_on_Area2D_area_entered"]
 
 

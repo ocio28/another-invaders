@@ -1,7 +1,6 @@
 extends Node2D
 
 func _on_Area2D_area_entered(area):
-	area.get_parent().visible = false
 	OS.window_fullscreen = !OS.window_fullscreen
 	if !OS.window_fullscreen:
 		OS.window_size = Vector2(State.config.viewport.x ,State.config.viewport.y)
