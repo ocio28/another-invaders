@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/Game.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ReadyGame.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/ARCADE_N.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://objects/Ship.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/Ufo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/PauseHUD.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Game" type="Node2D"]
+
+script = ExtResource( 1 )
+
+[node name="ReadyGame" type="CanvasLayer" parent="." index="0"]
+
+pause_mode = 2
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Pause" ]
+blinkTime = 0
+
+[node name="ColorRect" type="ColorRect" parent="ReadyGame" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 352.0
+margin_top = 208.0
+margin_right = 544.0
+margin_bottom = 264.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+
+[node name="Ready" type="Label" parent="ReadyGame" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 224.0
+margin_right = 896.0
+margin_bottom = 245.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "invasion"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Ship" parent="." index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 448, 464 )
+
+[node name="Ufo" parent="." index="2" instance=ExtResource( 5 )]
+
+position = Vector2( -48, 32 )
+
+[node name="HUD" parent="." index="3" instance=ExtResource( 6 )]
+
+[node name="PauseHUD" parent="." index="4" instance=ExtResource( 7 )]
+
+

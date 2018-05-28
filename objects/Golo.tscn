@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://objects/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://objects/FastBulletItem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/EnemyBullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/images/golo.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Golo" type="Node2D"]
+
+script = ExtResource( 1 )
+score = 10
+dropRate = 1.0
+Item = ExtResource( 2 )
+bullet = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 4 )
+hframes = 2
+_sections_unfolded = [ "Animation" ]
+
+[node name="MoveTimer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 37
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Cooldown" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.01
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_Timer_timeout"]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
+
+

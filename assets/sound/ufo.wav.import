@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ufo.wav-3a6dc1b5029a2f0d5d4f3e28351e101f.sample"
+
+[deps]
+
+source_file="res://assets/sound/ufo.wav"
+source_md5="a4be2e88f5837f4d5ffd80afae175ff9"
+
+dest_files=[ "res://.import/ufo.wav-3a6dc1b5029a2f0d5d4f3e28351e101f.sample" ]
+dest_md5="75894daee6eb123f00e6f3b84944cecc"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

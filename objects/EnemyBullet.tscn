@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://objects/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/bullet.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 0.910877, 8.89531 )
+
+[node name="EnemyBullet" type="Node2D"]
+
+script = ExtResource( 1 )
+speed = Vector2( 0, 250 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="EnemyBulletArea" type="Area2D" parent="." index="1" groups=[
+"damage",
+]]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBulletArea" index="0"]
+
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="EnemyBulletArea" to="." method="_on_Area2D_area_entered"]
+
+
