@@ -37,7 +37,7 @@ func _process(delta):
 
 func _on_Area2D_area_entered(area):
 	area.get_parent().queue_free()
-	$Play.autostart = true
+	$Play/Label.play_blink()
 	$StartTimer.start()
 
 func _on_StartTimer_timeout():

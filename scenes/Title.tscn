@@ -4,8 +4,8 @@
 [ext_resource path="res://assets/fonts/ARCADE_N.TTF" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/images/bullet.png" type="Texture" id=3]
 [ext_resource path="res://assets/images/ship.png" type="Texture" id=4]
-[ext_resource path="res://ui/ColorBlinkLabel.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ui/SoundConfig.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/SoundConfig.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/ColorBlinkLabel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/Fullscreen.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
@@ -26,7 +26,7 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 48, 10 )
 
-[node name="Title" type="Node2D"]
+[node name="Title" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -87,10 +87,39 @@ shape = SubResource( 2 )
 position = Vector2( 432, 416 )
 texture = ExtResource( 4 )
 
-[node name="Play" parent="." index="3" instance=ExtResource( 5 )]
+[node name="StartTimer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="SoundConfig" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 640, 336 )
+
+[node name="RankingTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 4.0
+one_shot = false
+autostart = true
+
+[node name="Play" type="Node2D" parent="." index="6"]
 
 position = Vector2( 432, 336 )
-text = "Jugar"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" parent="Play" index="0" instance=ExtResource( 6 )]
+
+margin_left = -48.0
+margin_top = -16.0
+margin_right = 48.0
+text = "jugar"
+align = 1
+valign = 1
 autostart = false
 
 [node name="Area2D" type="Area2D" parent="Play" index="1"]
@@ -110,32 +139,14 @@ _sections_unfolded = [ "Collision" ]
 
 shape = SubResource( 3 )
 
-[node name="StartTimer" type="Timer" parent="." index="4"]
+[node name="Fullscreen" parent="." index="7" instance=ExtResource( 7 )]
 
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="SoundConfig" parent="." index="5" instance=ExtResource( 6 )]
-
-position = Vector2( 576, 336 )
-
-[node name="Fullscreen" parent="." index="6" instance=ExtResource( 7 )]
-
-position = Vector2( 288, 336 )
-
-[node name="RankingTimer" type="Timer" parent="." index="7"]
-
-process_mode = 1
-wait_time = 4.0
-one_shot = false
-autostart = true
-
-[connection signal="area_entered" from="Play/Area2D" to="." method="_on_Area2D_area_entered"]
+position = Vector2( 176, 336 )
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 
 [connection signal="timeout" from="RankingTimer" to="." method="_on_RankingTimer_timeout"]
+
+[connection signal="area_entered" from="Play/Area2D" to="." method="_on_Area2D_area_entered"]
 
 

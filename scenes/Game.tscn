@@ -76,6 +76,7 @@ _sections_unfolded = [ "custom_fonts" ]
 [node name="Ship" parent="." index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 448, 464 )
+playable = true
 
 [node name="Ufo" parent="." index="2" instance=ExtResource( 5 )]
 
