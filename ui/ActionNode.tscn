@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/ActionNode.gd" type="Script" id=1]
+[ext_resource path="res://ui/ColorBlinkLabel.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 48, 16 )
+
+[node name="ActionNode" type="Node2D"]
+
+script = ExtResource( 1 )
+action = null
+text = ""
+
+[node name="Area2D" type="Area2D" parent="." index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 64
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Label" parent="." index="1" instance=ExtResource( 2 )]
+
+margin_left = -48.0
+margin_top = -16.0
+margin_right = 48.0
+margin_bottom = 16.0
+text = "label"
+align = 1
+valign = 1
+autostart = false
+
+[node name="OffTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+
+[connection signal="timeout" from="OffTimer" to="." method="_on_OffTimer_timeout"]
+
+

@@ -53,7 +53,10 @@ func game_over():
 func next_stage():
 	stage = 1
 	enemies = 0
-	goto_scene("Game")
+	goto_scene("GameProgress")
+
+func do_action(action):
+	print(action)
 
 func save_game(name):
 	top_scores.append({

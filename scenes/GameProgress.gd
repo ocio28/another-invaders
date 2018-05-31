@@ -4,15 +4,17 @@ const SPEED = Vector2(0, -800)
 var shoot = false
 
 var shipPositions = []
-var index = 2
+var index = 0
 var pressed =  false
 
 func _ready():
-	shipPositions.append(Vector2($Fullscreen.position.x, $Ship.position.y))
-	shipPositions.append(Vector2($Exit.position.x, $Ship.position.y))
-	shipPositions.append(Vector2($Play.position.x, $Ship.position.y))
-	shipPositions.append(Vector2($SoundConfig.position.x, $Ship.position.y))
-
+	for child in $Options.get_children():		
+		shipPositions.append(Vector2(child.position.x, $Ship.position.y))
+	#shipPositions.append(Vector2($TierraLabel.position.x, $Ship.position.y))
+	#shipPositions.append(Vector2($LunaLabel.position.x, $Ship.position.y))
+	#shipPositions.append(Vector2($MarteLabel.position.x, $Ship.position.y))
+	#shipPositions.append(Vector2($JupiterLabel.position.x, $Ship.position.y))
+	
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_start") || Input.is_action_just_pressed("ui_shoot")) && $Shoot != null:
 		pressed = true
@@ -35,13 +37,3 @@ func _process(delta):
 	$Ship.position = shipPositions[index]
 	if shoot && $Shoot != null:
 		$Shoot.translate(SPEED * delta)
-
-func _on_RankingTimer_timeout():
-	if !pressed:
-		if State.demoPlay:
-			State.goto_scene("DemoPlay")
-		else:
-			State.goto_scene("Ranking")
-		State.demoPlay = !State.demoPlay
-	else:
-		pressed = false
