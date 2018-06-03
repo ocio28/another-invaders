@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/UIFrame.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/ui/frame.png" type="Texture" id=2]
+
+[node name="UIFrame" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+width = 3
+height = 3
+
+[node name="Top_Left" type="Sprite" parent="." index="0"]
+
+position = Vector2( 16, 16 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Vertical" type="Sprite" parent="." index="1"]
+
+visible = false
+position = Vector2( 16, 48 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 32, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Vertical2" type="Sprite" parent="." index="2"]
+
+visible = false
+position = Vector2( 80, 48 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 64, 32, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Horizontal" type="Sprite" parent="." index="3"]
+
+visible = false
+position = Vector2( 48, 16 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Horizontal2" type="Sprite" parent="." index="4"]
+
+visible = false
+position = Vector2( 48, 80 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 32, 64, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Top_Right" type="Sprite" parent="." index="5"]
+
+position = Vector2( 80, 16 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Bottom_Right" type="Sprite" parent="." index="6"]
+
+position = Vector2( 80, 80 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Bottom_Left" type="Sprite" parent="." index="7"]
+
+position = Vector2( 16, 80 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+

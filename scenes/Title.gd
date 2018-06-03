@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPEED = Vector2(0, -800)
+const SPEED = Vector2(0, -1000)
 var shoot = false
 
 var shipPositions = []
@@ -8,10 +8,11 @@ var index = 2
 var pressed =  false
 
 func _ready():
-	shipPositions.append(Vector2($Fullscreen.position.x, $Ship.position.y))
-	shipPositions.append(Vector2($Exit.position.x, $Ship.position.y))
-	shipPositions.append(Vector2($Play.position.x, $Ship.position.y))
 	shipPositions.append(Vector2($SoundConfig.position.x, $Ship.position.y))
+	shipPositions.append(Vector2($Fullscreen.position.x + 50, $Ship.position.y))
+	shipPositions.append(Vector2($Play.position.x, $Ship.position.y))
+	shipPositions.append(Vector2($Exit.position.x, $Ship.position.y))
+	
 
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_start") || Input.is_action_just_pressed("ui_shoot")) && $Shoot != null:
@@ -33,7 +34,7 @@ func _process(delta):
 			index = 0
 		
 	$Ship.position = shipPositions[index]
-	if shoot && $Shoot != null:
+	if shoot && $Shoot != null && $Shoot.visible:
 		$Shoot.translate(SPEED * delta)
 
 func _on_RankingTimer_timeout():

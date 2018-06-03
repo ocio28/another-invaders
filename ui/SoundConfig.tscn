@@ -1,21 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://ui/SoundConfig.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/ARCADE_N.TTF" type="DynamicFontData" id=2]
-[ext_resource path="res://ui/ColorBlinkLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/ColorBlinkLabel.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 48, 16 )
-
-[sub_resource type="DynamicFont" id=2]
-
-size = 16
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 2 )
-_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="SoundConfig" type="Node2D"]
 
@@ -39,41 +30,18 @@ _sections_unfolded = [ "Collision" ]
 
 shape = SubResource( 1 )
 
-[node name="Label" type="Label" parent="." index="1"]
+[node name="Sound" parent="." index="1" instance=ExtResource( 2 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -48.0
 margin_top = -16.0
 margin_right = 48.0
 margin_bottom = 16.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-text = "sonido"
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
-
-[node name="Sound" parent="." index="2" instance=ExtResource( 3 )]
-
-margin_left = 64.0
-margin_top = -16.0
-margin_right = 128.0
-margin_bottom = 16.0
-text = "on"
+text = "mute"
+align = 1
 valign = 1
 autostart = false
 
-[node name="OffTimer" type="Timer" parent="." index="3"]
+[node name="OffTimer" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 0.5

@@ -11,7 +11,7 @@ extents = Vector2( 10, 10 )
 [node name="EnemySparkBullet" type="Node2D"]
 
 script = ExtResource( 1 )
-speed = Vector2( 0, -200 )
+speed = Vector2( 0, -400 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

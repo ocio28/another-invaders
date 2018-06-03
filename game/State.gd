@@ -44,19 +44,29 @@ func start_new_game():
 	score = 0
 	lifes = 2
 	stage = 0
-	next_stage()
+	goto_scene("GameProgress")
 	
 func game_over():
 	running = false
 	goto_scene("GameOver")
 	
 func next_stage():
-	stage = 1
+	stage += 1
 	enemies = 0
-	goto_scene("GameProgress")
+	if stage < 5:
+		goto_scene("Game")
+	else:
+		goto_scene("GameProgress")
 
 func do_action(action):
 	print(action)
+	match action:
+		0: stage = 1
+		1: stage = 1
+		2: stage = 1
+		3: stage = 1
+		
+	goto_scene("Game")
 
 func save_game(name):
 	top_scores.append({
@@ -85,30 +95,31 @@ func load_game():
 			top_scores = line["scores"]
 
 func goto_scene(name):
-    # This function will usually be called from a signal callback,
-    # or some other function from the running scene.
-    # Deleting the current scene at this point might be
-    # a bad idea, because it may be inside of a callback or function of it.
-    # The worst case will be a crash or unexpected behavior.
+	# This function will usually be called from a signal callback,
+	# or some other function from the running scene.
+	# Deleting the current scene at this point might be
+	# a bad idea, because it may be inside of a callback or function of it.
+	# The worst case will be a crash or unexpected behavior.
 
-    # The way around this is deferring the load to a later time, when
-    # it is ensured that no code from the current scene is running:
+	# The way around this is deferring the load to a later time, when
+	# it is ensured that no code from the current scene is running:
 
-    call_deferred("_deferred_goto_scene", "res://scenes/" + name + ".tscn")
+	call_deferred("_deferred_goto_scene", "res://scenes/" + name + ".tscn")
 
 func _deferred_goto_scene(path):
-    # Immediately free the current scene,
-    # there is no risk here.
-    current_scene.free()
+	# Immediately free the current scene,
+	# there is no risk here.
+	current_scene.free()
 
-    # Load new scene
-    var s = ResourceLoader.load(path)
+	print(path)
+	# Load new scene
+	var s = ResourceLoader.load(path)
 
-    # Instance the new scene
-    current_scene = s.instance()
+	# Instance the new scene
+	current_scene = s.instance()
 
-    # Add it to the active scene, as child of root
-    get_tree().get_root().add_child(current_scene)
+	# Add it to the active scene, as child of root
+	get_tree().get_root().add_child(current_scene)
 	
 func to_time(time):
 	var minutes = int(floor((time / 60))) % 60

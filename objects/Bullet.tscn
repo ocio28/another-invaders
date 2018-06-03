@@ -11,7 +11,8 @@ extents = Vector2( 0.910877, 8.89531 )
 [node name="Bullet" type="Node2D"]
 
 script = ExtResource( 1 )
-speed = Vector2( 0, -300 )
+speed = Vector2( 0, -600 )
+hp = 1
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

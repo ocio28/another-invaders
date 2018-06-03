@@ -9,6 +9,7 @@ func _ready():
 
 func _on_Area2D_area_entered(area):
 	$Label.play_blink()
+	area.get_parent().queue_free()
 	$OffTimer.start()
 
 func _on_OffTimer_timeout():

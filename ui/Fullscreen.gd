@@ -7,11 +7,11 @@ func _on_Area2D_area_entered(area):
 		OS.request_attention()
 	
 	if OS.window_fullscreen:
-		$Active.text = "on"
+		$Label.text = "window"
 	else:
-		$Active.text = "off"
-	$Active.play_blink()
+		$Label.text = "fullscreen"
+	$Label.play_blink()
 	$OffTimer.start()
 
 func _on_OffTimer_timeout():
-	$Active.stop_blink()
+	$Label.stop_blink()

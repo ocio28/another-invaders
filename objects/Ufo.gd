@@ -15,7 +15,7 @@ func _process(delta):
 
 func take_damage():
 	var label = ColorBlinkLabel.instance()
-	label.position = Vector2(position.x, position.y)
+	label.rect_position = Vector2(position.x - 16, position.y - 8)
 	label.text = "100"
 	label.selfDestroy = 1
 	get_parent().add_child(label)

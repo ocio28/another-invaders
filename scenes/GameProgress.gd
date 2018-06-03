@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPEED = Vector2(0, -800)
+const SPEED = Vector2(0, -1000)
 var shoot = false
 
 var shipPositions = []
