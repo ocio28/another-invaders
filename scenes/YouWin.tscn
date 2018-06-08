@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/YouWin.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/ARCADE_N.TTF" type="DynamicFontData" id=2]
-[ext_resource path="res://ui/BlinkLabel.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -188,20 +187,9 @@ _sections_unfolded = [ "custom_fonts" ]
 [node name="Timer" type="Timer" parent="." index="7"]
 
 process_mode = 1
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 autostart = true
-
-[node name="Continue" parent="." index="8" instance=ExtResource( 3 )]
-
-visible = false
-margin_top = 400.0
-margin_right = 896.0
-margin_bottom = 421.0
-text = "presiona para continuar"
-align = 1
-blinkTime = 0.3
-autostart = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

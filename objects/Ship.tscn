@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Ship" type="Node2D"]
+[node name="Ship" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 playable = true

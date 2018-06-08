@@ -20,9 +20,14 @@ var running = false
 
 var address = ''
 
+var player = {
+	"weapon": 0,
+	"bullets": 0
+}
+
 func _ready():
 	var root = get_tree().get_root()
-	current_scene = root.get_child(root.get_child_count() -1)
+	current_scene = root.get_child(root.get_child_count() - 1)
 	#var output = []
 	#var pid = OS.execute('node', ['/home/ocio/workspace/static-wallet', 'address'], true, output)
 	#address = output[0]
@@ -51,6 +56,8 @@ func start_new_game():
 	score = 0
 	lifes = 2
 	stage = 40
+	player.bullets = 0
+	player.weapon = 0
 	goto_scene("GameProgress")
 	
 func you_win():

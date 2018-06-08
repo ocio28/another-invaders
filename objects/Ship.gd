@@ -7,10 +7,8 @@ const Bullet = preload("res://objects/Bullet.tscn")
 const FastBullet = preload("res://objects/FastBullet.tscn")
 const SparkBullet = preload("res://objects/SparkBullet.tscn")
 const StrongBullet = preload("res://objects/StrongBullet.tscn")
-const SPEED = 150
+const SPEED = 250
 
-var bullets = 0
-var weapon = 0
 var alive = true
 var shooting = false
 var iframeTime = 0
@@ -43,7 +41,7 @@ func _process(delta):
 
 func shoot():
 	var bullet
-	match weapon:
+	match State.player.weapon:
 		0: bullet = Bullet.instance()
 		1: bullet = FastBullet.instance()
 		2: bullet = SparkBullet.instance()
@@ -52,10 +50,10 @@ func shoot():
 	bullet.set_position(Vector2(position.x, position.y -16))
 	get_parent().add_child(bullet)
 	shooting = true
-	bullets -= 1
+	State.player.bullets -= 1
 	$Timer.start()
-	if weapon != 0 && bullets <= 0:
-		weapon = 0
+	if State.player.weapon != 0 && State.player.bullets <= 0:
+		State.player.weapon = 0
 	
 func take_damage():
 	if !$IframeTimeout.is_stopped() || !alive:
@@ -69,12 +67,18 @@ func take_damage():
 	
 func _on_Timer_timeout():
 	shooting = false
+	match State.player.weapon:
+		0: $Timer.wait_time = 0.8
+		1: $Timer.wait_time = 0.3
+		2: $Timer.wait_time = 1
+		3: $Timer.wait_time = 0.5
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("item") && alive:
-		weapon = area.get_parent().weapon
-		bullets = area.get_parent().bullets
+		State.player.weapon = area.get_parent().weapon
+		State.player.bullets = area.get_parent().bullets
 		area.get_parent().queue_free()
+		State.add_score(10)
 
 func _on_RespawnTimer_timeout():
 	State.player_take_damage()

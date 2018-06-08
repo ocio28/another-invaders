@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://stages/Stage.gd" type="Script" id=1]
 [ext_resource path="res://objects/Golo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/Guf.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/Cile.tscn" type="PackedScene" id=4]
 
-[node name="Stage1" type="Node2D"]
+[node name="Stage1" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -58,9 +57,5 @@ position = Vector2( 288, 224 )
 [node name="Guf2" parent="Enemies" index="11" instance=ExtResource( 3 )]
 
 position = Vector2( 592, 224 )
-
-[node name="Cile" parent="Enemies" index="12" instance=ExtResource( 4 )]
-
-position = Vector2( 448, 48 )
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Title.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/ARCADE_N.TTF" type="DynamicFontData" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://ui/Play.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ui/Exit.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ui/UIFrame.tscn" type="PackedScene" id=9]
-[ext_resource path="res://ui/WalletAddress.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -84,10 +83,6 @@ position = Vector2( 656, 304 )
 position = Vector2( 64, 224 )
 width = 13
 height = 8
-
-[node name="WalletAddress" parent="." index="9" instance=ExtResource( 10 )]
-
-position = Vector2( 48, 448 )
 
 [connection signal="timeout" from="RankingTimer" to="." method="_on_RankingTimer_timeout"]
 
