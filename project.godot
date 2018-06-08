@@ -17,12 +17,12 @@ config/icon="res://icon.png"
 [autoload]
 
 State="*res://game/State.gd"
+size/resizable=true
 
 [display]
 
 window/size/width=896
 window/size/height=512
-window/size/resizable=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep_width"
 

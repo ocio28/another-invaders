@@ -7,9 +7,10 @@ var config = {
 var top_scores = []
 
 var current_scene = null
+var progress = 0
 var score = 0
 var lifes = 2
-var stage = 1
+var stage = 40
 var enemies = 0
 var stage_time = 0
 var game_time = 0
@@ -17,9 +18,14 @@ var game_time = 0
 var demoPlay = true
 var running = false
 
+var address = ''
+
 func _ready():
-    var root = get_tree().get_root()
-    current_scene = root.get_child(root.get_child_count() -1)
+	var root = get_tree().get_root()
+	current_scene = root.get_child(root.get_child_count() -1)
+	#var output = []
+	#var pid = OS.execute('node', ['/home/ocio/workspace/static-wallet', 'address'], true, output)
+	#address = output[0]
 	
 func _process(delta):
 	if running:
@@ -41,11 +47,17 @@ func player_take_damage():
 	
 func start_new_game():
 	running = true
+	#progress = 0
 	score = 0
 	lifes = 2
-	stage = 0
+	stage = 40
 	goto_scene("GameProgress")
 	
+func you_win():
+	if stage < progress:
+		progress += stage
+	State.goto_scene("YouWin")
+
 func game_over():
 	running = false
 	goto_scene("GameOver")
@@ -53,18 +65,15 @@ func game_over():
 func next_stage():
 	stage += 1
 	enemies = 0
-	if stage < 5:
-		goto_scene("Game")
-	else:
-		goto_scene("GameProgress")
+	goto_scene("Game")
 
 func do_action(action):
 	print(action)
 	match action:
 		0: stage = 1
-		1: stage = 1
-		2: stage = 1
-		3: stage = 1
+		1: stage = 20
+		2: stage = 30
+		3: stage = 40
 		
 	goto_scene("Game")
 

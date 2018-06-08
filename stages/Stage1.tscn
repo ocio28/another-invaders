@@ -41,8 +41,4 @@ position = Vector2( 512, 176 )
 
 position = Vector2( 384, 176 )
 
-[node name="Golo9" parent="Enemies" index="8" instance=ExtResource( 2 )]
-
-position = Vector2( 448, 96 )
-
 

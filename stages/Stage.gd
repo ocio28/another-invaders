@@ -6,4 +6,4 @@ func _process(delta):
 	if State.enemies == 0:
 		time += delta
 		if time > 1:
-			State.goto_scene("YouWin")
+			State.you_win()

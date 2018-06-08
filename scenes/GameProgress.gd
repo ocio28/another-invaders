@@ -8,8 +8,15 @@ var index = 0
 var pressed =  false
 
 func _ready():
-	for child in $Options.get_children():		
-		shipPositions.append(Vector2(child.position.x, $Ship.position.y))
+	shipPositions.append(Vector2($Options/TierraLabel.position.x, $Ship.position.y))
+	if State.stage > 10:
+		shipPositions.append(Vector2($Options/LunaLabel.position.x, $Ship.position.y))
+	if State.stage > 20:
+		shipPositions.append(Vector2($Options/MarteLabel.position.x, $Ship.position.y))
+	if State.stage > 30:
+		shipPositions.append(Vector2($Options/JupiterLabel.position.x, $Ship.position.y))
+	#for child in $Options.get_children():		
+	#	shipPositions.append(Vector2(child.position.x, $Ship.position.y))
 	#shipPositions.append(Vector2($TierraLabel.position.x, $Ship.position.y))
 	#shipPositions.append(Vector2($LunaLabel.position.x, $Ship.position.y))
 	#shipPositions.append(Vector2($MarteLabel.position.x, $Ship.position.y))

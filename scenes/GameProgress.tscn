@@ -7,7 +7,7 @@
 [ext_resource path="res://ui/ActionNode.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/images/tini_star.png" type="Texture" id=6]
 
-[node name="GameProgress" type="Node2D"]
+[node name="GameProgress" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
