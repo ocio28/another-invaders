@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Title.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/ARCADE_N.TTF" type="DynamicFontData" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://ui/Play.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ui/Exit.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ui/UIFrame.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ui/BlinkLabel.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -18,7 +19,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Title" type="Node2D"]
+[node name="Title" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -52,7 +53,7 @@ position = Vector2( 704, 416 )
 
 [node name="Ship" type="Sprite" parent="." index="2"]
 
-position = Vector2( 544, 416 )
+position = Vector2( 545, 416 )
 texture = ExtResource( 4 )
 
 [node name="SoundConfig" parent="." index="3" instance=ExtResource( 5 )]
@@ -84,6 +85,28 @@ position = Vector2( 64, 224 )
 width = 13
 height = 8
 
+[node name="InsertCoin" parent="." index="9" instance=ExtResource( 10 )]
+
+visible = false
+margin_left = 336.0
+margin_top = 400.0
+margin_right = 544.0
+margin_bottom = 437.0
+text = "insert coin"
+align = 1
+valign = 1
+blinkTime = 0.5
+autostart = false
+
+[node name="CheckCoins" type="Timer" parent="." index="10"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = false
+autostart = false
+
 [connection signal="timeout" from="RankingTimer" to="." method="_on_RankingTimer_timeout"]
+
+[connection signal="timeout" from="CheckCoins" to="." method="_on_CheckCoins_timeout"]
 
 

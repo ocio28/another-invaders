@@ -29,7 +29,7 @@ func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
 	#var output = []
-	#var pid = OS.execute('node', ['/home/ocio/workspace/static-wallet', 'address'], true, output)
+	#var pid = OS.execute('node', ['/home/ocio/workspace/arcade/game-wallet', 'address'], true, output)
 	#address = output[0]
 	
 func _process(delta):

@@ -52,7 +52,7 @@ func _on_Timer_timeout():
 		$Sprite.frame = 0
 	step += 1
 	if position.y > get_viewport().size.y - 64:
-		State.next_stage()
+		State.goto_scene("GameProgress")
 	
 func _exit_tree():
 	var explosion = Explosion.instance()
