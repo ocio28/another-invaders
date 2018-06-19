@@ -55,7 +55,7 @@ func finish_enter_name():
 	$Index.queue_free()
 	
 func finish_game():
-	State.save_game($Name.text)
+	State.save_score($Name.text)
 	State.goto_scene("Ranking")
 
 func _on_Timer_timeout():

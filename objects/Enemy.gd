@@ -1,5 +1,8 @@
 extends Node2D
 
+signal enemy_death_signal
+signal enemy_move_signal
+
 const Explosion = preload("res://objects/Explosion.tscn")
 const RIGHT = Vector2(16, 0)
 const LEFT = Vector2(-16, 0)
@@ -52,7 +55,7 @@ func _on_Timer_timeout():
 		$Sprite.frame = 0
 	step += 1
 	if position.y > get_viewport().size.y - 64:
-		State.goto_scene("GameProgress")
+		emit_signal("enemy_move_signal")
 	
 func _exit_tree():
 	var explosion = Explosion.instance()
@@ -63,6 +66,7 @@ func _exit_tree():
 		var item = Item.instance()
 		item.set_position(Vector2(position.x, position.y))
 		get_parent().add_child(item)
+	emit_signal("enemy_death_signal")
 	
 
 func _on_Cooldown_timeout():

@@ -28,6 +28,8 @@ func _process(delta):
 		shoot = true
 		$Shoot.position = shipPositions[index]
 		$Shoot.visible = true
+		if State.config.sound:
+			$ShootStream.play()
 		
 	if Input.is_action_just_pressed("ui_right"):
 		pressed = true

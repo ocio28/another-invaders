@@ -37,7 +37,6 @@ margin_top = -16.0
 margin_right = 48.0
 margin_bottom = 16.0
 text = "mute"
-align = 1
 valign = 1
 autostart = false
 

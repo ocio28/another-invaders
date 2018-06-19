@@ -18,6 +18,7 @@ config/icon="res://icon.png"
 
 State="*res://game/State.gd"
 size/resizable=true
+Audio="*res://game/Audio.gd"
 
 [display]
 

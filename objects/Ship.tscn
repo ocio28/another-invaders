@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://objects/Ship.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/ship.png" type="Texture" id=2]
+[ext_resource path="res://assets/sound/shoot.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sound/player_destroy.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Ship" type="Node2D" index="0"]
+[node name="Ship" type="Node2D"]
 
 script = ExtResource( 1 )
 playable = true
@@ -55,6 +57,26 @@ process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
+
+[node name="ShootStream" type="AudioStreamPlayer2D" parent="." index="5"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="DestroyStream" type="AudioStreamPlayer2D" parent="." index="6"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

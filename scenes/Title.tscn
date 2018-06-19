@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Title.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/ARCADE_N.TTF" type="DynamicFontData" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://ui/Exit.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ui/UIFrame.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ui/BlinkLabel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/sound/shoot.wav" type="AudioStream" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -19,7 +20,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Title" type="Node2D" index="0"]
+[node name="Title" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -104,6 +105,16 @@ process_mode = 1
 wait_time = 3.0
 one_shot = false
 autostart = false
+
+[node name="ShootStream" type="AudioStreamPlayer2D" parent="." index="11"]
+
+stream = ExtResource( 11 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="timeout" from="RankingTimer" to="." method="_on_RankingTimer_timeout"]
 

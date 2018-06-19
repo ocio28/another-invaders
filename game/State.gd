@@ -83,13 +83,16 @@ func do_action(action):
 		3: stage = 40
 		
 	goto_scene("Game")
-
-func save_game(name):
+	
+func save_score(name):
 	top_scores.append({
 		"name": name,
 		"score": score,
 		"time": game_time
 	})
+	save_game()
+
+func save_game():
 	var game_data = {
 		"sound": config.sound,
 		"scores": top_scores

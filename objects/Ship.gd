@@ -54,6 +54,8 @@ func shoot():
 	$Timer.start()
 	if State.player.weapon != 0 && State.player.bullets <= 0:
 		State.player.weapon = 0
+	if State.config.sound:
+		$ShootStream.play(0)
 	
 func take_damage():
 	if !$IframeTimeout.is_stopped() || !alive:
@@ -64,6 +66,8 @@ func take_damage():
 	explosion.set_position(Vector2(position.x, position.y))
 	get_parent().add_child(explosion)
 	$RespawnTimer.start()
+	if State.config.sound:
+		$DestroyStream.play()
 	
 func _on_Timer_timeout():
 	shooting = false
