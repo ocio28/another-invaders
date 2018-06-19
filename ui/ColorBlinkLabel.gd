@@ -31,6 +31,8 @@ func _process(delta):
 
 func play_blink():
 	autostart = true
+	if State.config.sound:
+		$Audio.play()
 	
 func stop_blink():
 	autostart = false

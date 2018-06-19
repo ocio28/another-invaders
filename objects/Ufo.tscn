@@ -45,7 +45,7 @@ autostart = false
 [node name="EngineStream" type="AudioStreamPlayer2D" parent="." index="3"]
 
 stream = ExtResource( 3 )
-volume_db = 0.0
+volume_db = -10.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0

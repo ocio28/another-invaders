@@ -41,7 +41,7 @@ func _on_Timer_timeout():
 	var y = 0
 	var x = 16
 	
-	if step % 6 == 0:
+	if step % 10 == 0:
 		dir *= -1
 		y = 20
 		x = 0
@@ -55,7 +55,8 @@ func _on_Timer_timeout():
 		$Sprite.frame = 0
 	step += 1
 	if position.y > get_viewport().size.y - 64:
-		emit_signal("enemy_move_signal")
+		State.goto_scene("GameProgress")
+	emit_signal("enemy_move_signal")
 	
 func _exit_tree():
 	var explosion = Explosion.instance()
