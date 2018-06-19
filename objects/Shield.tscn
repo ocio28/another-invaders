@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="Shield" type="Node2D"]
+[node name="Shield" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -29,7 +29,7 @@ collision_layer = 32
 collision_mask = 14
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Audio Bus", "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 

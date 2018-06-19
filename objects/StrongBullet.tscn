@@ -27,7 +27,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 5.47291, 8.89531 )
 
-[node name="StrongBullet" type="Node2D" index="0"]
+[node name="StrongBullet" type="Node2D"]
 
 script = ExtResource( 1 )
 speed = Vector2( 0, -450 )

@@ -15,6 +15,7 @@ extents = Vector2( 10, 10 )
 script = ExtResource( 1 )
 score = 10
 dropRate = 0.3
+baseCooldown = 3
 Item = ExtResource( 2 )
 bullet = ExtResource( 3 )
 

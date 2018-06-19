@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://objects/Ship.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/ship.png" type="Texture" id=2]
 [ext_resource path="res://assets/sound/shoot.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/sound/player_destroy.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sound/item.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -72,6 +73,16 @@ area_mask = 1
 
 stream = ExtResource( 4 )
 volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="PickItemStream" type="AudioStreamPlayer2D" parent="." index="7"]
+
+stream = ExtResource( 5 )
+volume_db = 10.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0

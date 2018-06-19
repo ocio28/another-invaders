@@ -22,7 +22,7 @@ func _process(delta):
 	else:
 		$EngineStream.stop()
 
-func take_damage():
+func take_damage(damage):
 	var label = ColorBlinkLabel.instance()
 	label.rect_position = Vector2(position.x - 16, position.y - 8)
 	label.text = "100"
@@ -33,6 +33,7 @@ func take_damage():
 	State.add_score(100)
 	if State.config.sound:
 		$DestroyStream.play()
+	return 1
 
 func _on_Timer_timeout():
 	var spawn = randi() % 10

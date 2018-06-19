@@ -10,6 +10,7 @@ const DOWN = Vector2(0, 32)
 
 export(int) var score = 10
 export(float) var dropRate = 0.3
+export(float) var baseCooldown = 3
 export(PackedScene) var Item
 export(PackedScene) var bullet
 
@@ -22,7 +23,7 @@ func _ready():
 	start_cooldown()
 	
 func start_cooldown():
-	$Cooldown.wait_time = 3 * randf() + 1
+	$Cooldown.wait_time = baseCooldown * randf() + 1
 	$Cooldown.start()
 	
 func shoot():
@@ -73,6 +74,7 @@ func _exit_tree():
 func _on_Cooldown_timeout():
 	shoot()
 
-func take_damage():
+func take_damage(damage):
 	State.kill_enemy(score)
 	queue_free()
+	return 1

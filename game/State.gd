@@ -52,10 +52,10 @@ func player_take_damage():
 	
 func start_new_game():
 	running = true
-	#progress = 0
+	progress = 40
 	score = 0
 	lifes = 2
-	stage = 40
+	stage = 1
 	player.bullets = 0
 	player.weapon = 0
 	goto_scene("GameProgress")

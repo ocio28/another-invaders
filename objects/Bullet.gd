@@ -10,7 +10,9 @@ func _process(delta):
 
 
 func _on_Area2D_area_entered(area):
-	area.get_parent().take_damage()
-	hp -= 1
-	if hp == 0:
-		queue_free()
+	var remain = area.get_parent().take_damage(hp)
+	print('remain', remain)
+	if remain != null:
+		hp -= remain
+		if hp <= 0:
+			queue_free()
