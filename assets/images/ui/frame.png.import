@@ -7,10 +7,7 @@ path="res://.import/frame.png-31224910eeee979a5b31e3e2fd853fab.stex"
 [deps]
 
 source_file="res://assets/images/ui/frame.png"
-source_md5="84ee257e2a78a8119a5b60ee3d1655cd"
-
 dest_files=[ "res://.import/frame.png-31224910eeee979a5b31e3e2fd853fab.stex" ]
-dest_md5="3723d3a638104765d0cb35a0a5f635e4"
 
 [params]
 

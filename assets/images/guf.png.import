@@ -7,10 +7,7 @@ path="res://.import/guf.png-f02cd2a8d10bcdd377cd344e054bb576.stex"
 [deps]
 
 source_file="res://assets/images/guf.png"
-source_md5="4ed5b1b2b5aa7fdcca82e033a757b960"
-
 dest_files=[ "res://.import/guf.png-f02cd2a8d10bcdd377cd344e054bb576.stex" ]
-dest_md5="e4163581b0d2279e90a8a7113c809419"
 
 [params]
 

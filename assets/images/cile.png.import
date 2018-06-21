@@ -7,10 +7,7 @@ path="res://.import/cile.png-5c5a2b5221c0386121e8306c81627e3e.stex"
 [deps]
 
 source_file="res://assets/images/cile.png"
-source_md5="071a3c0656b7257f7ba06181088610a1"
-
 dest_files=[ "res://.import/cile.png-5c5a2b5221c0386121e8306c81627e3e.stex" ]
-dest_md5="bc18e6f5b397803f39d8b2a5fe0ecdb1"
 
 [params]
 

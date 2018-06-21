@@ -7,10 +7,7 @@ path="res://.import/ufo.png-6e108eaef76d2fdef6baca3b9d0b562e.stex"
 [deps]
 
 source_file="res://assets/images/ufo.png"
-source_md5="86ad7144a625799dab7ef1442b39c694"
-
 dest_files=[ "res://.import/ufo.png-6e108eaef76d2fdef6baca3b9d0b562e.stex" ]
-dest_md5="b64d127a03630946ff3436a430540b9a"
 
 [params]
 

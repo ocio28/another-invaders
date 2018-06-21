@@ -7,10 +7,7 @@ path="res://.import/shoot.wav-b3df5285297a80da474f59090cab32c2.sample"
 [deps]
 
 source_file="res://assets/sound/shoot.wav"
-source_md5="8bc5bd5cde136f48a3bb22af61594df2"
-
 dest_files=[ "res://.import/shoot.wav-b3df5285297a80da474f59090cab32c2.sample" ]
-dest_md5="83c0ed240e5e6f6d705d8a8f871d991e"
 
 [params]
 

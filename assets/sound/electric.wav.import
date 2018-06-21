@@ -7,10 +7,7 @@ path="res://.import/electric.wav-a72bf6547a433a2961db57f619f48f02.sample"
 [deps]
 
 source_file="res://assets/sound/electric.wav"
-source_md5="896df97053001eac339688de468ee242"
-
 dest_files=[ "res://.import/electric.wav-a72bf6547a433a2961db57f619f48f02.sample" ]
-dest_md5="9903981087e701b9a813071f25f0b235"
 
 [params]
 

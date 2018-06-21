@@ -7,10 +7,7 @@ path="res://.import/shield.png-1f5031537e6c9a9aad9fc3e08116da6b.stex"
 [deps]
 
 source_file="res://assets/images/shield.png"
-source_md5="70b51f1eb1fb2a91604259ea0d9c5576"
-
 dest_files=[ "res://.import/shield.png-1f5031537e6c9a9aad9fc3e08116da6b.stex" ]
-dest_md5="7e4f081365d1d9e589d5a1e7c05c2470"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/tini_star.png-7ec6190b6bc27e54926bb619643f8fcb.stex"
 [deps]
 
 source_file="res://assets/images/tini_star.png"
-source_md5="14cc8c0be651407fa908fa1fc448ca22"
-
 dest_files=[ "res://.import/tini_star.png-7ec6190b6bc27e54926bb619643f8fcb.stex" ]
-dest_md5="34153d992c9d2735b50b0aff4f7c3b2f"
 
 [params]
 

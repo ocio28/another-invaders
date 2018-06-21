@@ -7,10 +7,7 @@ path="res://.import/golo.png-73eaf69f1a9bca80d033e48dbb546d75.stex"
 [deps]
 
 source_file="res://assets/images/golo.png"
-source_md5="4ab720fa713cce4a32963e0ba0406bb5"
-
 dest_files=[ "res://.import/golo.png-73eaf69f1a9bca80d033e48dbb546d75.stex" ]
-dest_md5="f8906db5008743560811b778eca8716f"
 
 [params]
 

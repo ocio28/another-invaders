@@ -7,10 +7,7 @@ path="res://.import/enemy_destroy.wav-c61f0dfc1d473199a44728acd502c930.sample"
 [deps]
 
 source_file="res://assets/sound/enemy_destroy.wav"
-source_md5="b2de8a4c42977c895438e5fd5ed44e67"
-
 dest_files=[ "res://.import/enemy_destroy.wav-c61f0dfc1d473199a44728acd502c930.sample" ]
-dest_md5="44913e3c4f0276cc91ccdf4567fe56b0"
 
 [params]
 
