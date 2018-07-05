@@ -55,8 +55,9 @@ func _on_Timer_timeout():
 	else:
 		$Sprite.frame = 0
 	step += 1
-	if position.y > get_viewport().size.y - 64:
-		State.goto_scene("GameProgress")
+
+	if position.y > 432:
+		State.goto_scene("Title")
 	emit_signal("enemy_move_signal")
 	
 func _exit_tree():
