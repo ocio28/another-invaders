@@ -1,16 +1,17 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ReadyGame.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/ARCADE_N.TTF" type="DynamicFontData" id=3]
 [ext_resource path="res://objects/Ship.tscn" type="PackedScene" id=4]
-[ext_resource path="res://objects/Ufo.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=6]
-[ext_resource path="res://ui/PauseHUD.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/sound/enemy_destroy.wav" type="AudioStream" id=8]
-[ext_resource path="res://assets/sound/move1.wav" type="AudioStream" id=9]
-[ext_resource path="res://assets/sound/move2.wav" type="AudioStream" id=10]
-[ext_resource path="res://assets/sound/move3.wav" type="AudioStream" id=11]
+[ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/PauseHUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sound/enemy_destroy.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sound/move1.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/sound/move2.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/sound/move3.wav" type="AudioStream" id=10]
+[ext_resource path="res://scenes/Spammer.gd" type="Script" id=11]
+[ext_resource path="res://objects/Ufo.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -20,7 +21,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -81,55 +82,69 @@ _sections_unfolded = [ "custom_fonts" ]
 
 position = Vector2( 448, 464 )
 
-[node name="Ufo" parent="." index="2" instance=ExtResource( 5 )]
+[node name="HUD" parent="." index="2" instance=ExtResource( 5 )]
 
-position = Vector2( -48, 32 )
+[node name="PauseHUD" parent="." index="3" instance=ExtResource( 6 )]
 
-[node name="HUD" parent="." index="3" instance=ExtResource( 6 )]
-
-[node name="PauseHUD" parent="." index="4" instance=ExtResource( 7 )]
-
-[node name="DeathEnemyStream" type="AudioStreamPlayer2D" parent="." index="5"]
+[node name="DeathEnemyStream" type="AudioStreamPlayer2D" parent="." index="4"]
 
 position = Vector2( 448, 272 )
-stream = ExtResource( 8 )
+stream = ExtResource( 7 )
 volume_db = 10.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="Move1" type="AudioStreamPlayer2D" parent="." index="6"]
+[node name="Move1" type="AudioStreamPlayer2D" parent="." index="5"]
 
-stream = ExtResource( 9 )
+stream = ExtResource( 8 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="Move2" type="AudioStreamPlayer2D" parent="." index="7"]
+[node name="Move2" type="AudioStreamPlayer2D" parent="." index="6"]
 
 position = Vector2( 896, 0 )
-stream = ExtResource( 10 )
+stream = ExtResource( 9 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="Move3" type="AudioStreamPlayer2D" parent="." index="8"]
+[node name="Move3" type="AudioStreamPlayer2D" parent="." index="7"]
 
 position = Vector2( 448, 176 )
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
+
+[node name="Spammer" type="Node2D" parent="." index="8"]
+
+script = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+object = ExtResource( 12 )
+
+[node name="Left" type="Position2D" parent="Spammer" index="0"]
+
+position = Vector2( -16, 32 )
+
+[node name="Right" type="Position2D" parent="Spammer" index="1"]
+
+position = Vector2( 912, 32 )
 
 

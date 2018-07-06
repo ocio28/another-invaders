@@ -54,8 +54,7 @@ func shoot():
 	$Timer.start()
 	if State.player.weapon != 0 && State.player.bullets <= 0:
 		State.player.weapon = 0
-	if State.config.sound:
-		$ShootStream.play(0)
+	Audio.shoot()
 	
 func take_damage(damage):
 	if !$IframeTimeout.is_stopped() || !alive:
@@ -66,8 +65,7 @@ func take_damage(damage):
 	explosion.set_position(Vector2(position.x, position.y))
 	get_parent().add_child(explosion)
 	$RespawnTimer.start()
-	if State.config.sound:
-		$DestroyStream.play()
+	Audio.explosion()
 	return 1
 	
 func _on_Timer_timeout():
@@ -84,8 +82,7 @@ func _on_Area2D_area_entered(area):
 		State.player.bullets = area.get_parent().bullets
 		area.get_parent().queue_free()
 		State.add_score(10)
-		if State.config.sound:
-			$PickItemStream.play()
+		Audio.item()
 
 func _on_RespawnTimer_timeout():
 	State.player_take_damage()
