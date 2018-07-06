@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://audio/Audio.gd" type="Script" id=1]
 [ext_resource path="res://assets/sound/ufo.wav" type="AudioStream" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://assets/sound/shoot.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/sound/item.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/sound/destroy.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sound/move1.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sound/move2.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/sound/move3.wav" type="AudioStream" id=9]
 
 [node name="Audio" type="Node2D" index="0"]
 
@@ -61,9 +64,46 @@ area_mask = 1
 
 [node name="Destroy" type="AudioStreamPlayer2D" parent="." index="4"]
 
-position = Vector2( 470, 10 )
+position = Vector2( 450, 20 )
 stream = ExtResource( 6 )
 volume_db = 10.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Move1" type="AudioStreamPlayer2D" parent="." index="5"]
+
+position = Vector2( 900, 260 )
+stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Move2" type="AudioStreamPlayer2D" parent="." index="6"]
+
+position = Vector2( 0, 260 )
+scale = Vector2( 1.125, 1 )
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Move3" type="AudioStreamPlayer2D" parent="." index="7"]
+
+position = Vector2( 460, 240 )
+stream = ExtResource( 9 )
+volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0

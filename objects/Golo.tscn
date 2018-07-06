@@ -30,7 +30,7 @@ _sections_unfolded = [ "Animation" ]
 process_mode = 1
 wait_time = 0.8
 one_shot = false
-autostart = true
+autostart = false
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
 

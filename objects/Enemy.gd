@@ -1,12 +1,6 @@
 extends Node2D
 
-signal enemy_death_signal
-signal enemy_move_signal
-
 const Explosion = preload("res://objects/Explosion.tscn")
-const RIGHT = Vector2(16, 0)
-const LEFT = Vector2(-16, 0)
-const DOWN = Vector2(0, 32)
 
 export(int) var score = 10
 export(float) var dropRate = 0.3
@@ -16,7 +10,6 @@ export(PackedScene) var bullet
 
 var step = 1
 var dir = 1
-#var current = RIGHT
 
 func _ready():
 	State.enemies += 1
@@ -28,49 +21,29 @@ func start_cooldown():
 	
 func shoot():
 	var shoot = bullet.instance()
-	shoot.position = Vector2(position.x, position.y)
-	get_parent().add_child(shoot)
+	shoot.position = Vector2(global_position.x, global_position.y)
+	add_object(shoot)
 	start_cooldown()
 	
-func move(action):
-	match action:
-		"RIGHT": translate(RIGHT)
-		"LEFT": translate(LEFT)
-		"DOWN": translate(DOWN)
-
-func _on_Timer_timeout():
-	var y = 0
-	var x = 16
-	
-	if step % 10 == 0:
-		dir *= -1
-		y = 20
-		x = 0
-		if $MoveTimer.wait_time > 0.2:
-			$MoveTimer.wait_time -= 0.1
-
-	translate(Vector2(x * dir, y))
+func change_sprite():
 	if $Sprite.frame == 0:
 		$Sprite.frame = 1
 	else:
 		$Sprite.frame = 0
-	step += 1
-
-	if position.y > 432:
-		State.goto_scene("Title")
-	emit_signal("enemy_move_signal")
 	
 func _exit_tree():
 	var explosion = Explosion.instance()
-	explosion.set_position(Vector2(position.x, position.y))
-	get_parent().add_child(explosion)
+	explosion.set_position(Vector2(global_position.x, global_position.y))
+	add_object(explosion)
 	
 	if randf() < dropRate:
 		var item = Item.instance()
-		item.set_position(Vector2(position.x, position.y))
-		get_parent().add_child(item)
+		item.set_position(Vector2(global_position.x, global_position.y))
+		add_object(item)
 	Audio.destroy()
 	
+func add_object(obj):
+	get_tree().root.add_child(obj)
 
 func _on_Cooldown_timeout():
 	shoot()
