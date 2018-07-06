@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/GameProgress.gd" type="Script" id=1]
 [ext_resource path="res://ui/MenuShoot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/images/ship.png" type="Texture" id=3]
 [ext_resource path="res://assets/images/planet.png" type="Texture" id=4]
 [ext_resource path="res://ui/ActionNode.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/images/tini_star.png" type="Texture" id=6]
-[ext_resource path="res://assets/sound/shoot.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/images/ui/arrow_left.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/tini_star.png" type="Texture" id=7]
+[ext_resource path="res://assets/sound/shoot.wav" type="AudioStream" id=8]
 
-[node name="GameProgress" type="Node2D"]
+[node name="GameProgress" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -83,57 +84,77 @@ position = Vector2( 816, 160 )
 action = 3
 text = "jupiter"
 
-[node name="Lights" type="Node2D" parent="." index="8"]
+[node name="Back" parent="Options" index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 128, 320 )
+action = 4
+text = "volver"
+
+[node name="Arrow" type="Sprite" parent="." index="8"]
+
+position = Vector2( 128, 272 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Lights" type="Node2D" parent="." index="9"]
+
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Lights" index="0"]
 
 position = Vector2( 640, 192 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Sprite2" type="Sprite" parent="Lights" index="1"]
 
 position = Vector2( 656, 208 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Sprite3" type="Sprite" parent="Lights" index="2"]
 
 position = Vector2( 656, 192 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Sprite4" type="Sprite" parent="Lights" index="3"]
 
 position = Vector2( 592, 192 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Sprite5" type="Sprite" parent="Lights" index="4"]
 
 position = Vector2( 608, 176 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Sprite6" type="Sprite" parent="Lights" index="5"]
 
 position = Vector2( 592, 176 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Sprite7" type="Sprite" parent="Lights" index="6"]
 
 position = Vector2( 624, 144 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Sprite8" type="Sprite" parent="Lights" index="7"]
 
 position = Vector2( 624, 160 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Sprite9" type="Sprite" parent="Lights" index="8"]
 
 position = Vector2( 592, 144 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
-[node name="ShootStream" type="AudioStreamPlayer2D" parent="." index="9"]
+[node name="ShootStream" type="AudioStreamPlayer2D" parent="." index="10"]
 
-stream = ExtResource( 7 )
+position = Vector2( 464, 0 )
+stream = ExtResource( 8 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0

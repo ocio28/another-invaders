@@ -1,6 +1,6 @@
 extends Node2D
 
-enum ACTIONS {TIERRA, LUNA, MARTE, JUPITER}
+enum ACTIONS {TIERRA, LUNA, MARTE, JUPITER, VOLVER}
 export(ACTIONS) var action = ACTIONS.TIERRA
 export(String) var text = ""
 

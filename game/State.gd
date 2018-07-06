@@ -75,14 +75,16 @@ func next_stage():
 	goto_scene("Game")
 
 func do_action(action):
-	print(action)
+	stage = 0
 	match action:
 		0: stage = 1
 		1: stage = 20
 		2: stage = 30
 		3: stage = 40
+		4: goto_scene("Title")
 		
-	goto_scene("Game")
+	if stage != 0:
+		goto_scene("Game")
 	
 func save_score(name):
 	top_scores.append({

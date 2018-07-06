@@ -69,7 +69,7 @@ func _exit_tree():
 		var item = Item.instance()
 		item.set_position(Vector2(position.x, position.y))
 		get_parent().add_child(item)
-	emit_signal("enemy_death_signal")
+	Audio.destroy()
 	
 
 func _on_Cooldown_timeout():

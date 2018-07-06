@@ -1,19 +1,8 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
-	
 func ufo_engine():
-	$Ufo.play()
-	
-func ufo_engine_stop():
-	$Ufo.stop()
+	if State.config.sound:
+		$Ufo.play()
 	
 func explosion():
 	if State.config.sound:
@@ -21,12 +10,12 @@ func explosion():
 
 func shoot():
 	if State.config.sound:
-		$Shoot.play(0)
+		$Shoot.play()
 
 func item():
 	if State.config.sound:
-		$Item.play(0)
+		$Item.play()
 
-
-func _on_Ufo_finished():
-	$Ufo.play()
+func destroy():
+	if State.config.sound:
+		$Destroy.play()

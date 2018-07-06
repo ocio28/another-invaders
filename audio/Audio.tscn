@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://audio/Audio.gd" type="Script" id=1]
 [ext_resource path="res://assets/sound/ufo.wav" type="AudioStream" id=2]
 [ext_resource path="res://assets/sound/player_destroy.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/sound/shoot.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/sound/item.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sound/destroy.wav" type="AudioStream" id=6]
 
 [node name="Audio" type="Node2D" index="0"]
 
@@ -50,6 +51,18 @@ area_mask = 1
 
 position = Vector2( 470, 480 )
 stream = ExtResource( 5 )
+volume_db = 10.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Destroy" type="AudioStreamPlayer2D" parent="." index="4"]
+
+position = Vector2( 470, 10 )
+stream = ExtResource( 6 )
 volume_db = 10.0
 pitch_scale = 1.0
 autoplay = false

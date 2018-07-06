@@ -4,10 +4,11 @@ const SPEED = Vector2(0, -1000)
 var shoot = false
 
 var shipPositions = []
-var index = 0
+var index = 1
 var pressed =  false
 
 func _ready():
+	shipPositions.append(Vector2($Options/Back.position.x, $Ship.position.y))
 	shipPositions.append(Vector2($Options/TierraLabel.position.x, $Ship.position.y))
 	if State.progress > 10:
 		shipPositions.append(Vector2($Options/LunaLabel.position.x, $Ship.position.y))
@@ -15,12 +16,6 @@ func _ready():
 		shipPositions.append(Vector2($Options/MarteLabel.position.x, $Ship.position.y))
 	if State.progress > 30:
 		shipPositions.append(Vector2($Options/JupiterLabel.position.x, $Ship.position.y))
-	#for child in $Options.get_children():		
-	#	shipPositions.append(Vector2(child.position.x, $Ship.position.y))
-	#shipPositions.append(Vector2($TierraLabel.position.x, $Ship.position.y))
-	#shipPositions.append(Vector2($LunaLabel.position.x, $Ship.position.y))
-	#shipPositions.append(Vector2($MarteLabel.position.x, $Ship.position.y))
-	#shipPositions.append(Vector2($JupiterLabel.position.x, $Ship.position.y))
 	
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_start") || Input.is_action_just_pressed("ui_shoot")) && $Shoot != null:
