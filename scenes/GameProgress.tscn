@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/GameProgress.gd" type="Script" id=1]
 [ext_resource path="res://ui/MenuShoot.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://ui/ActionNode.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/images/ui/arrow_left.png" type="Texture" id=6]
 [ext_resource path="res://assets/images/tini_star.png" type="Texture" id=7]
-[ext_resource path="res://assets/sound/shoot.wav" type="AudioStream" id=8]
 
 [node name="GameProgress" type="Node2D" index="0"]
 
@@ -148,17 +147,5 @@ texture = ExtResource( 7 )
 
 position = Vector2( 592, 144 )
 texture = ExtResource( 7 )
-
-[node name="ShootStream" type="AudioStreamPlayer2D" parent="." index="10"]
-
-position = Vector2( 464, 0 )
-stream = ExtResource( 8 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
 
