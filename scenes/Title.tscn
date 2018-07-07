@@ -58,7 +58,7 @@ texture = ExtResource( 4 )
 
 [node name="SoundConfig" parent="." index="3" instance=ExtResource( 5 )]
 
-position = Vector2( 144, 320 )
+position = Vector2( 224, 320 )
 
 [node name="RankingTimer" type="Timer" parent="." index="4"]
 
@@ -69,7 +69,7 @@ autostart = true
 
 [node name="Fullscreen" parent="." index="5" instance=ExtResource( 6 )]
 
-position = Vector2( 176, 272 )
+position = Vector2( 256, 272 )
 
 [node name="Play" parent="." index="6" instance=ExtResource( 7 )]
 
@@ -81,7 +81,7 @@ position = Vector2( 656, 304 )
 
 [node name="UIFrame3" parent="." index="8" instance=ExtResource( 9 )]
 
-position = Vector2( 64, 224 )
+position = Vector2( 144, 224 )
 width = 13
 height = 8
 

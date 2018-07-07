@@ -77,7 +77,7 @@ func next_stage():
 func do_action(action):
 	stage = 0
 	match action:
-		0: stage = 1
+		0: stage = 4
 		1: stage = 20
 		2: stage = 30
 		3: stage = 40

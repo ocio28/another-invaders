@@ -10,10 +10,8 @@ var pressed =  false
 func _ready():
 	shipPositions.append(Vector2($Options/Back.position.x, $Ship.position.y))
 	shipPositions.append(Vector2($Options/TierraLabel.position.x, $Ship.position.y))
-	if State.progress > 10:
-		shipPositions.append(Vector2($Options/LunaLabel.position.x, $Ship.position.y))
-	if State.progress > 20:
-		shipPositions.append(Vector2($Options/MarteLabel.position.x, $Ship.position.y))
+	shipPositions.append(Vector2($Options/LunaLabel.position.x, $Ship.position.y))
+	shipPositions.append(Vector2($Options/MarteLabel.position.x, $Ship.position.y))
 	if State.progress > 30:
 		shipPositions.append(Vector2($Options/JupiterLabel.position.x, $Ship.position.y))
 	
