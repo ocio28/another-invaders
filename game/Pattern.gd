@@ -32,23 +32,29 @@ func timeout():
 	move(action)
 
 func move(action):
+	var pos = Vector2(0, 0)
 	match action:
 		ACTIONS.RIGHT: 
-			translate(Vector2(16, 0))
+			pos = Vector2(16, 0)
 			Audio.move_right()
 		ACTIONS.LEFT:
-			translate(Vector2(-16, 0))
+			pos = Vector2(-16, 0)
 			Audio.move_left()
 		ACTIONS.DOWN:
-			translate(Vector2(0, 16))
+			pos = Vector2(0, 16)
 			Audio.move_down()
 		ACTIONS.UP:
-			translate(Vector2(0, -16))
+			pos = Vector2(0, -16)
 			Audio.move_down()
 	
-	var childs = get_child_count()
+	var ydol = get_node("Ydol")
+	if ydol != null:
+		ydol.move(pos)
+	var childs = $Creatures.get_child_count()
 	for i in range(childs):
-		var child = get_child(i)
+		var child = $Creatures.get_child(i)
+		if child.has_method("move"):
+			child.move(pos)
 		if child.has_method("change_sprite"):
 			child.change_sprite()
 

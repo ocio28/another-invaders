@@ -1,67 +1,86 @@
 extends Node2D
 
-const SPEED = Vector2(0, -1000)
-var shoot = false
-
 var shipPositions = []
-var index = 2
-var pressed =  false
-
-#var output = []
+var index = 0
+var pressed= false
+var shooting = false
 
 func _ready():
-	#check_coins()
-	shipPositions.append(Vector2($SoundConfig.position.x, $Ship.position.y))
-	shipPositions.append(Vector2($Fullscreen.position.x + 50, $Ship.position.y))
-	shipPositions.append(Vector2($Play.position.x, $Ship.position.y))
-	shipPositions.append(Vector2($Exit.position.x, $Ship.position.y))
+	shipPositions.append(Vector2($Ship.position.x, $PlayLabel.rect_position.y))
+	shipPositions.append(Vector2($Ship.position.x, $ScoresLabel.rect_position.y))
+	shipPositions.append(Vector2($Ship.position.x, $FullscreenLabel.rect_position.y))
+	shipPositions.append(Vector2($Ship.position.x, $SoundLabel.rect_position.y))
+	shipPositions.append(Vector2($Ship.position.x, $ExitLabel.rect_position.y))
+	$Ship.position.y = $PlayLabel.rect_position.y + 8
+	if State.config.sound:
+		$SoundLabel.text = "sonido"
+	else:
+		$SoundLabel.text = "mute"
 
 func _process(delta):
-	"""if output.size() != 0:
-		var coins = int(output[0])
-		if coins == 0:
-			return
-			
-	$Ship.visible = true"""
-	if (Input.is_action_just_pressed("ui_start") || Input.is_action_just_pressed("ui_shoot")) && $Shoot != null:
+	if shooting:
+		$Ship/Shoot.translate(Vector2(0, -20))
+	if not $ActionTimeout.is_stopped():
+		return
+
+	if (Input.is_action_just_pressed("ui_start") || Input.is_action_just_pressed("ui_shoot")):
 		pressed = true
-		shoot = true
-		$Shoot.position = shipPositions[index]
-		$Shoot.visible = true
+		shooting = true
+		$Ship/Shoot.visible = true
+		$Ship/Shoot.position.y = 0
 		Audio.shoot()
+		$ActionTimeout.start()
+		match index:
+			0: $PlayLabel.play_blink()
+			1: $ScoresLabel.play_blink()
+			2: $FullscreenLabel.play_blink()
+			3: $SoundLabel.play_blink()
+			4: $ExitLabel.play_blink()
 		
-	if Input.is_action_just_pressed("ui_right"):
+	if Input.is_action_just_pressed("ui_down"):
 		pressed = true
 		index += 1
 		if index > shipPositions.size() - 1:
-			index = shipPositions.size() - 1
+			index = 0
 		
-	if Input.is_action_just_pressed("ui_left"):
+	if Input.is_action_just_pressed("ui_up"):
 		pressed = true
 		index -= 1
 		if index < 0:
-			index = 0
-		
-	$Ship.position = shipPositions[index]
-	if shoot && $Shoot != null && $Shoot.visible:
-		$Shoot.translate(SPEED * delta)
+			index = shipPositions.size() - 1
+			
+	$Ship.position.y = shipPositions[index].y + 8
 
 func _on_RankingTimer_timeout():
 	if !pressed:
-		if State.demoPlay:
-			State.goto_scene("DemoPlay")
-		else:
-			State.goto_scene("Ranking")
-		State.demoPlay = !State.demoPlay
+		State.goto_scene("DemoPlay")
 	else:
 		pressed = false
 
-func check_coins():
-	pass
-	#var output = []
-	#var pid = OS.execute('node', ['/home/ocio/workspace/arcade/game-wallet', 'coins'], false, output)
-	#var coins = output[0]
-	#print('pid', pid, output)
 
-func _on_CheckCoins_timeout():
-	check_coins()
+func _on_ActionTimeout_timeout():
+	match index:
+		0: State.start_new_game()
+		1: State.goto_scene("Ranking")
+		2: fullscreen()
+		3: sound_change()
+		4: get_tree().quit()
+	
+func sound_change():
+	State.config.sound = !State.config.sound
+	if State.config.sound:
+		$SoundLabel.text = "sonido"
+	else:
+		$SoundLabel.text = "mute"
+	State.save_game()
+
+func fullscreen():
+	OS.window_fullscreen = !OS.window_fullscreen
+	if !OS.window_fullscreen:
+		OS.window_size = Vector2(State.config.viewport.x ,State.config.viewport.y)
+		OS.request_attention()
+	
+	if OS.window_fullscreen:
+		$FullscreenLabel.text = "window"
+	else:
+		$FullscreenLabel.text = "fullscreen"

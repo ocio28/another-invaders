@@ -9,10 +9,18 @@ export(Color) var target = Color(1, 0, 0)
 var time = 0
 var destroy = 0
 var blink = true
+var blinking = 0
 
 func _process(delta):
 	if !autostart:
+		set_color(origin)
 		return
+	
+	blinking += delta
+	if blinking > 0.5:
+		autostart = false
+		blinking = 0
+		
 	time += delta
 	if time > 0.05:
 		time = 0

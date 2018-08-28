@@ -1,19 +1,22 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Title.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/ARCADE_N.TTF" type="DynamicFontData" id=2]
-[ext_resource path="res://ui/MenuShoot.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/images/ship.png" type="Texture" id=4]
-[ext_resource path="res://ui/SoundConfig.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ui/Fullscreen.tscn" type="PackedScene" id=6]
-[ext_resource path="res://ui/Play.tscn" type="PackedScene" id=7]
-[ext_resource path="res://ui/Exit.tscn" type="PackedScene" id=8]
-[ext_resource path="res://ui/UIFrame.tscn" type="PackedScene" id=9]
-[ext_resource path="res://ui/BlinkLabel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/images/ship.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/bullet.png" type="Texture" id=4]
+[ext_resource path="res://ui/ColorBlinkLabel.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 36
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 16
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 2 )
@@ -39,74 +42,110 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-text = "another invaders"
+text = "invasores"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Shoot" parent="." index="1" instance=ExtResource( 3 )]
-
-visible = false
-position = Vector2( 704, 416 )
-
-[node name="Ship" type="Sprite" parent="." index="2"]
-
-position = Vector2( 545, 416 )
-texture = ExtResource( 4 )
-
-[node name="SoundConfig" parent="." index="3" instance=ExtResource( 5 )]
-
-position = Vector2( 224, 320 )
-
-[node name="RankingTimer" type="Timer" parent="." index="4"]
+[node name="RankingTimer" type="Timer" parent="." index="1"]
 
 process_mode = 1
-wait_time = 4.0
+wait_time = 10.0
 one_shot = false
 autostart = true
 
-[node name="Fullscreen" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Label" type="Label" parent="." index="2"]
 
-position = Vector2( 256, 272 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 384.0
+margin_top = 480.0
+margin_right = 524.0
+margin_bottom = 501.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "@ocio28"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
-[node name="Play" parent="." index="6" instance=ExtResource( 7 )]
+[node name="Ship" type="Sprite" parent="." index="3"]
 
-position = Vector2( 544, 304 )
+position = Vector2( 432, 208 )
+rotation = 1.5708
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Exit" parent="." index="7" instance=ExtResource( 8 )]
-
-position = Vector2( 656, 304 )
-
-[node name="UIFrame3" parent="." index="8" instance=ExtResource( 9 )]
-
-position = Vector2( 144, 224 )
-width = 13
-height = 8
-
-[node name="InsertCoin" parent="." index="9" instance=ExtResource( 10 )]
+[node name="Shoot" type="Sprite" parent="Ship" index="0"]
 
 visible = false
-margin_left = 336.0
-margin_top = 400.0
-margin_right = 544.0
-margin_bottom = 437.0
-text = "insert coin"
-align = 1
-valign = 1
-blinkTime = 0.5
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="PlayLabel" parent="." index="4" instance=ExtResource( 5 )]
+
+margin_left = 480.0
+margin_top = 208.0
+margin_right = 560.0
+margin_bottom = 240.0
+text = "jugar"
 autostart = false
 
-[node name="CheckCoins" type="Timer" parent="." index="10"]
+[node name="ScoresLabel" parent="." index="5" instance=ExtResource( 5 )]
+
+margin_left = 480.0
+margin_top = 240.0
+margin_right = 608.0
+margin_bottom = 272.0
+text = "puntajes"
+autostart = false
+
+[node name="FullscreenLabel" parent="." index="6" instance=ExtResource( 5 )]
+
+margin_left = 480.0
+margin_top = 272.0
+margin_right = 640.0
+margin_bottom = 304.0
+text = "fullscreen"
+autostart = false
+
+[node name="SoundLabel" parent="." index="7" instance=ExtResource( 5 )]
+
+margin_left = 480.0
+margin_top = 304.0
+margin_right = 576.0
+margin_bottom = 336.0
+text = "sonido"
+autostart = false
+
+[node name="ExitLabel" parent="." index="8" instance=ExtResource( 5 )]
+
+margin_left = 480.0
+margin_top = 336.0
+margin_right = 560.0
+margin_bottom = 368.0
+text = "salir"
+autostart = false
+
+[node name="ActionTimeout" type="Timer" parent="." index="9"]
 
 process_mode = 1
-wait_time = 3.0
-one_shot = false
+wait_time = 0.7
+one_shot = true
 autostart = false
 
 [connection signal="timeout" from="RankingTimer" to="." method="_on_RankingTimer_timeout"]
 
-[connection signal="timeout" from="CheckCoins" to="." method="_on_CheckCoins_timeout"]
+[connection signal="timeout" from="ActionTimeout" to="." method="_on_ActionTimeout_timeout"]
 
 

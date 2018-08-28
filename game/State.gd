@@ -15,7 +15,6 @@ var enemies = 0
 var stage_time = 0
 var game_time = 0
 
-var demoPlay = true
 var running = false
 
 var address = ''
@@ -42,6 +41,9 @@ func _process(delta):
 
 func kill_enemy(value):
 	add_score(value)
+	
+func kill_ydol():
+	add_score(1)
 	enemies -= 1
 	
 func add_score(value):
@@ -77,7 +79,7 @@ func next_stage():
 func do_action(action):
 	stage = 0
 	match action:
-		0: stage = 4
+		0: stage = 1
 		1: stage = 20
 		2: stage = 30
 		3: stage = 40

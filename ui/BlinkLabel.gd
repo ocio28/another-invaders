@@ -10,7 +10,7 @@ var destroy = 0
 func _process(delta):
 	if !autostart:
 		return
-		
+
 	time += delta
 	if time > blinkTime:
 		time = 0
