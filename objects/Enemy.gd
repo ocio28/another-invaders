@@ -33,7 +33,7 @@ func change_sprite():
 	else:
 		$Sprite.frame = 0
 	
-func _exit_tree():
+func explosion():
 	var explosion = Explosion.instance()
 	explosion.set_position(Vector2(global_position.x, global_position.y))
 	add_object(explosion)
@@ -52,5 +52,6 @@ func _on_Cooldown_timeout():
 
 func take_damage(damage):
 	State.kill_enemy(score)
+	explosion()
 	queue_free()
 	return 1

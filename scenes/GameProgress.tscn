@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/images/ui/arrow_left.png" type="Texture" id=6]
 [ext_resource path="res://assets/images/tini_star.png" type="Texture" id=7]
 
-[node name="GameProgress" type="Node2D" index="0"]
+[node name="GameProgress" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -19,33 +19,33 @@ position = Vector2( 240, 464 )
 
 [node name="Ship" type="Sprite" parent="." index="1"]
 
-position = Vector2( 224, 464 )
+position = Vector2( 272, 304 )
 texture = ExtResource( 3 )
 
 [node name="Luna" type="Sprite" parent="." index="2"]
 
-position = Vector2( 304, 64 )
+position = Vector2( 340, 52 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Tierra" type="Sprite" parent="." index="3"]
 
-position = Vector2( 224, 160 )
+position = Vector2( 272, 192 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Tierra2" type="Sprite" parent="." index="4"]
 
-position = Vector2( 528, 336 )
+position = Vector2( 560, 316 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Tierra3" type="Sprite" parent="." index="5"]
 
-position = Vector2( 816, 64 )
+position = Vector2( 832, 64 )
 scale = Vector2( 6, 6 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
@@ -61,19 +61,19 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="TierraLabel" parent="Options" index="0" instance=ExtResource( 5 )]
 
-position = Vector2( 224, 224 )
+position = Vector2( 272, 256 )
 action = 0
 text = "tierra"
 
 [node name="LunaLabel" parent="Options" index="1" instance=ExtResource( 5 )]
 
-position = Vector2( 336, 128 )
+position = Vector2( 372, 116 )
 action = 1
 text = "luna"
 
 [node name="MarteLabel" parent="Options" index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 528, 384 )
+position = Vector2( 560, 364 )
 action = 2
 text = "marte"
 
@@ -85,13 +85,13 @@ text = "jupiter"
 
 [node name="Back" parent="Options" index="4" instance=ExtResource( 5 )]
 
-position = Vector2( 128, 320 )
+position = Vector2( 96, 112 )
 action = 4
 text = "volver"
 
 [node name="Arrow" type="Sprite" parent="." index="8"]
 
-position = Vector2( 128, 272 )
+position = Vector2( 96, 64 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
