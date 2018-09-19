@@ -1,9 +1,10 @@
 extends Node2D
 
 enum ACTIONS {LEFT, RIGHT, UP, DOWN}
-enum PATTERNS {BASIC, H1, H2}
+enum PATTERNS {BASIC, B2, H1, H2}
 
 const BASIC = [RIGHT, RIGHT, RIGHT, DOWN, LEFT, LEFT, LEFT, DOWN]
+const B2 = [LEFT, LEFT, LEFT, DOWN, RIGHT, RIGHT, RIGHT, DOWN]
 const H1 = [RIGHT, RIGHT, LEFT, LEFT, DOWN]
 const H2 = [LEFT, RIGHT, RIGHT, LEFT, DOWN]
 
@@ -16,6 +17,7 @@ var time = 0
 func _ready():
 	match pattern:
 		PATTERNS.BASIC: current = BASIC
+		PATTERNS.B2: current = B2
 		PATTERNS.H1: current = H1
 
 func _process(delta):
@@ -36,16 +38,16 @@ func move(action):
 	match action:
 		ACTIONS.RIGHT: 
 			pos = Vector2(16, 0)
-			Audio.move_right()
+			#Audio.move_right()
 		ACTIONS.LEFT:
 			pos = Vector2(-16, 0)
-			Audio.move_left()
+			#Audio.move_left()
 		ACTIONS.DOWN:
 			pos = Vector2(0, 16)
-			Audio.move_down()
+			#Audio.move_down()
 		ACTIONS.UP:
 			pos = Vector2(0, -16)
-			Audio.move_down()
+			#Audio.move_down()
 	
 	"""var ydol = get_node("Ydol")
 	if ydol != null:
