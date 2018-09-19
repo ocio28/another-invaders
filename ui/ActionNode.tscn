@@ -41,6 +41,7 @@ text = "label"
 align = 1
 valign = 1
 autostart = false
+selfDestroy = false
 
 [node name="OffTimer" type="Timer" parent="." index="2"]
 

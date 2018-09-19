@@ -12,6 +12,7 @@ var step = 1
 var dir = 1
 
 func _ready():
+	State.enemies += 1
 	start_cooldown()
 	
 func move(position):

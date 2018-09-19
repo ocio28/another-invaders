@@ -24,7 +24,7 @@ texture = ExtResource( 3 )
 
 [node name="Luna" type="Sprite" parent="." index="2"]
 
-position = Vector2( 340, 52 )
+position = Vector2( 320, 80 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
@@ -67,7 +67,7 @@ text = "tierra"
 
 [node name="LunaLabel" parent="Options" index="1" instance=ExtResource( 5 )]
 
-position = Vector2( 372, 116 )
+position = Vector2( 390, 120 )
 action = 1
 text = "luna"
 

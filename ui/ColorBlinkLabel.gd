@@ -2,12 +2,11 @@ extends Label
 
 export(float) var blinkTime = 0.1
 export(bool) var autostart = true
-export(int) var selfDestroy = 0
+export(bool) var selfDestroy = false
 export(Color) var origin = Color(1, 1, 1)
 export(Color) var target = Color(1, 0, 0)
 
 var time = 0
-var destroy = 0
 var blink = true
 var blinking = 0
 
@@ -20,6 +19,8 @@ func _process(delta):
 	if blinking > 0.5:
 		autostart = false
 		blinking = 0
+		if selfDestroy:
+			queue_free()
 		
 	time += delta
 	if time > 0.05:
@@ -31,11 +32,7 @@ func _process(delta):
 			c = target
 		blink = !blink
 		set_color(c)
-		
-	if selfDestroy != 0:
-		destroy += delta
-		if destroy > selfDestroy:
-			queue_free()
+	
 
 func play_blink():
 	autostart = true

@@ -17,7 +17,7 @@ func _exit_tree():
 	var label = ColorBlinkLabel.instance()
 	label.rect_position = Vector2(position.x - 16, position.y - 8)
 	label.text = "100"
-	label.selfDestroy = 1
+	label.selfDestroy = true
 	get_parent().add_child(label)
 
 func take_damage(damage):

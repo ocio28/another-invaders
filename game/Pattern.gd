@@ -47,12 +47,13 @@ func move(action):
 			pos = Vector2(0, -16)
 			Audio.move_down()
 	
-	var ydol = get_node("Ydol")
+	"""var ydol = get_node("Ydol")
 	if ydol != null:
-		ydol.move(pos)
-	var childs = $Creatures.get_child_count()
+		ydol.move(pos)"""
+	#var childs = $Creatures.get_child_count()
+	var childs = get_child_count()
 	for i in range(childs):
-		var child = $Creatures.get_child(i)
+		var child = get_child(i)
 		if child.has_method("move"):
 			child.move(pos)
 		if child.has_method("change_sprite"):

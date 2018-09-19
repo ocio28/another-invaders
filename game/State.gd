@@ -40,6 +40,7 @@ func _process(delta):
 		get_tree().quit()
 
 func kill_enemy(value):
+	enemies -= 1
 	add_score(value)
 	
 func kill_ydol():
