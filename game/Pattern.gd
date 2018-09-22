@@ -13,6 +13,8 @@ var current = BASIC
 
 var index = 0
 var time = 0
+var current_timeout = 0.8
+var count = 0
 
 func _ready():
 	match pattern:
@@ -22,7 +24,7 @@ func _ready():
 
 func _process(delta):
 	time += delta
-	if time > 0.8:
+	if time > current_timeout:
 		timeout()
 		
 func timeout():
@@ -32,6 +34,11 @@ func timeout():
 	if index == current.size():
 		index = 0
 	move(action)
+	count += 1
+	if count > 6 && current_timeout > 0.3:
+		count = 0
+		current_timeout -= 0.1
+		
 
 func move(action):
 	var pos = Vector2(0, 0)

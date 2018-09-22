@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://stages/Stage.gd" type="Script" id=1]
 [ext_resource path="res://game/Pattern.gd" type="Script" id=2]
 [ext_resource path="res://objects/Golo.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/Guf.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/GoloBoss.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/Shield.tscn" type="PackedScene" id=6]
 
 [node name="Stage4" type="Node2D"]
 
@@ -50,10 +51,18 @@ position = Vector2( 608, 224 )
 [node name="Boss" type="Node2D" parent="." index="1"]
 
 script = ExtResource( 2 )
-pattern = null
+pattern = 0
 
 [node name="GoloBoss" parent="Boss" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 448, 144 )
+
+[node name="Shield" parent="." index="2" instance=ExtResource( 6 )]
+
+position = Vector2( 336, 384 )
+
+[node name="Shield2" parent="." index="3" instance=ExtResource( 6 )]
+
+position = Vector2( 560, 384 )
 
 

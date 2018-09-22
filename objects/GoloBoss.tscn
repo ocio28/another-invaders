@@ -8,16 +8,16 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 80, 96 )
+extents = Vector2( 48, 53.095 )
 
-[node name="GoloBoss" type="Node2D" index="0"]
+[node name="GoloBoss" type="Node2D"]
 
 script = ExtResource( 1 )
 maxHp = 5
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 8, 8 )
+scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 hframes = 2
 _sections_unfolded = [ "Animation", "Transform" ]
@@ -44,21 +44,21 @@ shape = SubResource( 1 )
 
 [node name="W1" type="Position2D" parent="Weapons" index="0"]
 
-position = Vector2( -80, 32 )
+position = Vector2( -32, 32 )
 script = ExtResource( 3 )
 bullet = ExtResource( 4 )
 cooldown = 1
 
 [node name="W2" type="Position2D" parent="Weapons" index="1"]
 
-position = Vector2( 0, 96 )
+position = Vector2( 0, 48 )
 script = ExtResource( 3 )
 bullet = ExtResource( 4 )
 cooldown = 1
 
 [node name="W3" type="Position2D" parent="Weapons" index="2"]
 
-position = Vector2( 80, 32 )
+position = Vector2( 32, 32 )
 script = ExtResource( 3 )
 bullet = ExtResource( 4 )
 cooldown = 1

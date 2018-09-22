@@ -10,6 +10,9 @@ onready var hp = maxHp
 func _ready():
 	State.enemies += 1
 	
+func move(position):
+	translate(position)
+	
 func shoot():
 	var count = $Weapons.get_child_count()
 	var pick = randi() % count

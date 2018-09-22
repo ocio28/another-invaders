@@ -22,3 +22,8 @@ func select_sprite():
 		2: frame = 3
 			
 	$Sprite.frame = frame
+
+func _on_Area2D_area_entered(area):
+	var parent = area.get_parent()
+	if parent.has_method("take_damage"):
+		parent.take_damage(10)
