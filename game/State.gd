@@ -59,6 +59,7 @@ func start_new_game():
 	score = 0
 	lifes = 2
 	stage = 1
+	enemies = 0
 	player.bullets = 0
 	player.weapon = 0
 	goto_scene("GameProgress")
@@ -135,7 +136,6 @@ func _deferred_goto_scene(path):
 	# there is no risk here.
 	current_scene.free()
 
-	print(path)
 	# Load new scene
 	var s = ResourceLoader.load(path)
 

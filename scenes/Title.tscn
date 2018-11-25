@@ -123,6 +123,7 @@ margin_right = 484.0
 margin_bottom = 248.0
 text = "jugar"
 autostart = false
+selfDestroy = false
 
 [node name="ScoresLabel" parent="." index="6" instance=ExtResource( 5 )]
 
@@ -132,6 +133,7 @@ margin_right = 532.0
 margin_bottom = 280.0
 text = "puntajes"
 autostart = false
+selfDestroy = false
 
 [node name="FullscreenLabel" parent="." index="7" instance=ExtResource( 5 )]
 
@@ -141,6 +143,7 @@ margin_right = 564.0
 margin_bottom = 312.0
 text = "fullscreen"
 autostart = false
+selfDestroy = false
 
 [node name="SoundLabel" parent="." index="8" instance=ExtResource( 5 )]
 
@@ -150,6 +153,7 @@ margin_right = 500.0
 margin_bottom = 344.0
 text = "sonido"
 autostart = false
+selfDestroy = false
 
 [node name="ExitLabel" parent="." index="9" instance=ExtResource( 5 )]
 
@@ -159,6 +163,7 @@ margin_right = 484.0
 margin_bottom = 376.0
 text = "salir"
 autostart = false
+selfDestroy = false
 
 [node name="ActionTimeout" type="Timer" parent="." index="10"]
 

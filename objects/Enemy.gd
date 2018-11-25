@@ -15,8 +15,11 @@ func _ready():
 	State.enemies += 1
 	start_cooldown()
 	
-func move(position):
-	translate(position)
+func move(pos):
+	translate(pos)
+	#print(position.y, get_viewport().get_size().y)
+	if position.y > get_viewport().get_size().y*0.9:
+		State.game_over()
 	
 func start_cooldown():
 	$Cooldown.wait_time = baseCooldown * randf() + 1

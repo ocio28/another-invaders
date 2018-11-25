@@ -1,110 +1,114 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://stages/Stage.gd" type="Script" id=1]
-[ext_resource path="res://objects/Golo.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/Guf.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/Cile.tscn" type="PackedScene" id=4]
-[ext_resource path="res://objects/Shield.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/Pattern.gd" type="Script" id=2]
+[ext_resource path="res://objects/Golo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/Guf.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/Cile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/Shield.tscn" type="PackedScene" id=6]
 
-[node name="Stage1" type="Node2D" index="0"]
+[node name="Stage1" type="Node2D"]
 
 script = ExtResource( 1 )
 
 [node name="Enemies" type="Node2D" parent="." index="0"]
 
-[node name="Golo" parent="Enemies" index="0" instance=ExtResource( 2 )]
+script = ExtResource( 2 )
+pattern = null
+
+[node name="Golo" parent="Enemies" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( 128, 144 )
 
-[node name="Golo9" parent="Enemies" index="1" instance=ExtResource( 2 )]
+[node name="Golo9" parent="Enemies" index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 96, 112 )
 
-[node name="Golo2" parent="Enemies" index="2" instance=ExtResource( 2 )]
+[node name="Golo2" parent="Enemies" index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 448, 288 )
 
-[node name="Golo5" parent="Enemies" index="3" instance=ExtResource( 2 )]
+[node name="Golo5" parent="Enemies" index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 768, 144 )
 
-[node name="Golo6" parent="Enemies" index="4" instance=ExtResource( 2 )]
+[node name="Golo6" parent="Enemies" index="4" instance=ExtResource( 3 )]
 
 position = Vector2( 480, 288 )
 
-[node name="Golo10" parent="Enemies" index="5" instance=ExtResource( 2 )]
+[node name="Golo10" parent="Enemies" index="5" instance=ExtResource( 3 )]
 
 position = Vector2( 800, 144 )
 
-[node name="Guf" parent="Enemies" index="6" instance=ExtResource( 3 )]
+[node name="Guf" parent="Enemies" index="6" instance=ExtResource( 4 )]
 
 position = Vector2( 96, 144 )
 
-[node name="Guf2" parent="Enemies" index="7" instance=ExtResource( 3 )]
+[node name="Guf2" parent="Enemies" index="7" instance=ExtResource( 4 )]
 
 position = Vector2( 128, 112 )
 
-[node name="Guf3" parent="Enemies" index="8" instance=ExtResource( 3 )]
+[node name="Guf3" parent="Enemies" index="8" instance=ExtResource( 4 )]
 
 position = Vector2( 592, 256 )
 
-[node name="Guf7" parent="Enemies" index="9" instance=ExtResource( 3 )]
+[node name="Guf7" parent="Enemies" index="9" instance=ExtResource( 4 )]
 
 position = Vector2( 304, 256 )
 
-[node name="Guf4" parent="Enemies" index="10" instance=ExtResource( 3 )]
+[node name="Guf4" parent="Enemies" index="10" instance=ExtResource( 4 )]
 
 position = Vector2( 336, 256 )
 
-[node name="Guf8" parent="Enemies" index="11" instance=ExtResource( 3 )]
+[node name="Guf8" parent="Enemies" index="11" instance=ExtResource( 4 )]
 
 position = Vector2( 624, 256 )
 
-[node name="Guf5" parent="Enemies" index="12" instance=ExtResource( 3 )]
+[node name="Guf5" parent="Enemies" index="12" instance=ExtResource( 4 )]
 
 position = Vector2( 768, 112 )
 
-[node name="Guf6" parent="Enemies" index="13" instance=ExtResource( 3 )]
+[node name="Guf6" parent="Enemies" index="13" instance=ExtResource( 4 )]
 
 position = Vector2( 800, 112 )
 
-[node name="Cile" parent="Enemies" index="14" instance=ExtResource( 4 )]
+[node name="Cile" parent="Enemies" index="14" instance=ExtResource( 5 )]
 
 position = Vector2( 608, 208 )
 
-[node name="Cile6" parent="Enemies" index="15" instance=ExtResource( 4 )]
+[node name="Cile6" parent="Enemies" index="15" instance=ExtResource( 5 )]
 
 position = Vector2( 608, 160 )
 
-[node name="Cile2" parent="Enemies" index="16" instance=ExtResource( 4 )]
+[node name="Cile2" parent="Enemies" index="16" instance=ExtResource( 5 )]
 
 position = Vector2( 320, 208 )
 
-[node name="Cile5" parent="Enemies" index="17" instance=ExtResource( 4 )]
+[node name="Cile5" parent="Enemies" index="17" instance=ExtResource( 5 )]
 
 position = Vector2( 320, 160 )
 
-[node name="Shield" parent="." index="1" instance=ExtResource( 5 )]
+[node name="Shield" parent="." index="1" instance=ExtResource( 6 )]
 
 position = Vector2( 240, 400 )
 
-[node name="Shield2" parent="." index="2" instance=ExtResource( 5 )]
+[node name="Shield2" parent="." index="2" instance=ExtResource( 6 )]
 
 position = Vector2( 720, 400 )
 
-[node name="Shield3" parent="." index="3" instance=ExtResource( 5 )]
+[node name="Shield3" parent="." index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 672, 400 )
 
-[node name="Shield5" parent="." index="4" instance=ExtResource( 5 )]
+[node name="Shield5" parent="." index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 432, 400 )
 
-[node name="Shield6" parent="." index="5" instance=ExtResource( 5 )]
+[node name="Shield6" parent="." index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 496, 400 )
 
-[node name="Shield4" parent="." index="6" instance=ExtResource( 5 )]
+[node name="Shield4" parent="." index="6" instance=ExtResource( 6 )]
 
 position = Vector2( 192, 400 )
 
