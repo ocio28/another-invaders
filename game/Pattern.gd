@@ -1,12 +1,15 @@
 extends Node2D
 
-enum ACTIONS {LEFT, RIGHT, UP, DOWN}
-enum PATTERNS {BASIC, B2, H1, H2}
+enum ACTIONS {LEFT, RIGHT, UP, DOWN, STAND}
+enum PATTERNS {BASIC, B2, H1, H2, C1, C2, STATIC}
 
 const BASIC = [RIGHT, RIGHT, RIGHT, DOWN, LEFT, LEFT, LEFT, DOWN]
 const B2 = [LEFT, LEFT, LEFT, DOWN, RIGHT, RIGHT, RIGHT, DOWN]
+const C1 = [RIGHT, LEFT, LEFT, LEFT, DOWN, LEFT, RIGHT, RIGHT, RIGHT, DOWN]
+const C2 = [LEFT, RIGHT, RIGHT, RIGHT, DOWN, RIGHT, LEFT, LEFT, LEFT, DOWN]
 const H1 = [RIGHT, RIGHT, LEFT, LEFT, DOWN]
 const H2 = [LEFT, RIGHT, RIGHT, LEFT, DOWN]
+const STATIC = [STAND, STAND, STAND, DOWN]
 
 export(PATTERNS) var pattern
 var current = BASIC
@@ -21,6 +24,9 @@ func _ready():
 		PATTERNS.BASIC: current = BASIC
 		PATTERNS.B2: current = B2
 		PATTERNS.H1: current = H1
+		PATTERNS.C1: current = C1
+		PATTERNS.C2: current = C2
+		PATTERNS.STATIC: current = STATIC
 
 func _process(delta):
 	time += delta

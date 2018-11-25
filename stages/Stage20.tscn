@@ -15,40 +15,45 @@ script = ExtResource( 1 )
 script = ExtResource( 2 )
 pattern = null
 
-[node name="Golo3" parent="Enemies" index="0" instance=ExtResource( 3 )]
-
-position = Vector2( 448, 240 )
-
-[node name="Golo4" parent="Enemies" index="1" instance=ExtResource( 3 )]
+[node name="Golo4" parent="Enemies" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( 480, 240 )
 
-[node name="Golo8" parent="Enemies" index="2" instance=ExtResource( 3 )]
+[node name="Golo8" parent="Enemies" index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 480, 208 )
 
-[node name="Golo5" parent="Enemies" index="3" instance=ExtResource( 3 )]
-
-position = Vector2( 448, 208 )
-
-[node name="Golo6" parent="Enemies" index="4" instance=ExtResource( 3 )]
-
-position = Vector2( 368, 224 )
-
-[node name="Golo10" parent="Enemies" index="5" instance=ExtResource( 3 )]
+[node name="Golo10" parent="Enemies" index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 576, 224 )
 
-[node name="Guf" parent="Enemies" index="6" instance=ExtResource( 4 )]
-
-position = Vector2( 272, 224 )
-
-[node name="Guf2" parent="Enemies" index="7" instance=ExtResource( 4 )]
+[node name="Guf2" parent="Enemies" index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 688, 224 )
 
 [node name="Shield" parent="." index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 464, 368 )
+
+[node name="Left" type="Node2D" parent="." index="2"]
+
+script = ExtResource( 2 )
+pattern = 1
+
+[node name="Golo3" parent="Left" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( 448, 240 )
+
+[node name="Golo5" parent="Left" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 448, 208 )
+
+[node name="Golo6" parent="Left" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 368, 224 )
+
+[node name="Guf" parent="Left" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 272, 224 )
 
 
