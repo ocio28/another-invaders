@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/DemoPlay.gd" type="Script" id=1]
 [ext_resource path="res://objects/Ship.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/Golo.tscn" type="PackedScene" id=3]
-[ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/Pattern.gd" type="Script" id=3]
+[ext_resource path="res://objects/Golo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=5]
 
 [node name="DemoPlay" type="Node2D" index="0"]
 
@@ -16,27 +17,30 @@ playable = false
 
 [node name="Enemies" type="Node2D" parent="." index="1"]
 
-[node name="Golo" parent="Enemies" index="0" instance=ExtResource( 3 )]
+script = ExtResource( 3 )
+pattern = 0
+
+[node name="Golo" parent="Enemies" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 368, 272 )
 
-[node name="Golo2" parent="Enemies" index="1" instance=ExtResource( 3 )]
+[node name="Golo2" parent="Enemies" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 400, 272 )
 
-[node name="Golo6" parent="Enemies" index="2" instance=ExtResource( 3 )]
+[node name="Golo6" parent="Enemies" index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 336, 272 )
 
-[node name="Golo3" parent="Enemies" index="3" instance=ExtResource( 3 )]
+[node name="Golo3" parent="Enemies" index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 512, 272 )
 
-[node name="Golo4" parent="Enemies" index="4" instance=ExtResource( 3 )]
+[node name="Golo4" parent="Enemies" index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 544, 272 )
 
-[node name="Golo5" parent="Enemies" index="5" instance=ExtResource( 3 )]
+[node name="Golo5" parent="Enemies" index="5" instance=ExtResource( 4 )]
 
 position = Vector2( 576, 272 )
 
@@ -47,7 +51,7 @@ wait_time = 8.0
 one_shot = true
 autostart = true
 
-[node name="HUD" parent="." index="3" instance=ExtResource( 4 )]
+[node name="HUD" parent="." index="3" instance=ExtResource( 5 )]
 
 [connection signal="timeout" from="EndTimer" to="." method="_on_EndTimer_timeout"]
 
