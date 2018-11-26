@@ -3,6 +3,6 @@ Arcade classic space shooter construido con godot3
 
 Godot: https://godotengine.org/
 
-# Ludocleta
+# c28
 
-https://ludocleta.cl
+https://c28.cl
