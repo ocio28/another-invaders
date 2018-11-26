@@ -17,7 +17,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -84,6 +84,7 @@ position = Vector2( 448, 464 )
 
 [node name="Spammer" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 script = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 object = ExtResource( 8 )

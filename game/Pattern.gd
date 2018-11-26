@@ -51,16 +51,12 @@ func move(action):
 	match action:
 		ACTIONS.RIGHT: 
 			pos = Vector2(16, 0)
-			#Audio.move_right()
 		ACTIONS.LEFT:
 			pos = Vector2(-16, 0)
-			#Audio.move_left()
 		ACTIONS.DOWN:
 			pos = Vector2(0, 16)
-			#Audio.move_down()
 		ACTIONS.UP:
 			pos = Vector2(0, -16)
-			#Audio.move_down()
 	
 	"""var ydol = get_node("Ydol")
 	if ydol != null:
